@@ -24,7 +24,7 @@
         <input type="submit" value="Crear Usuario">
     </form>
     
-    <br /><a href='/'>Volver</a>
+    <br /><a href='/login'>Volver</a>
     
 </body>
 </html>

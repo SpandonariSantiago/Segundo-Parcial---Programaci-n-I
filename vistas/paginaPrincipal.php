@@ -9,7 +9,7 @@
 <body>
     <h1>BLOG</h1> 
     <h2>Bienvenido a nuestro blog, donde podra publicar lo que usted quiera ☺</h2>
-    <hr><h3>Si desea iniciar sesion presione aqui:</h3><a href='/'>Iniciar sesion</a><hr>
+    <hr><h3>Si desea iniciar sesion presione aqui:</h3><a href='/login'>Iniciar sesion</a><hr>
 
 </body>
 </html>

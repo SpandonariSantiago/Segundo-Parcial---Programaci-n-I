@@ -8,7 +8,7 @@
         
     });
 
-    require_once "../config.php";
+    require_once "../utils/config.php";
     require_once "../utils/statusCodes.php";
     require_once "../utils/sessions.php";
     require_once "../utils/render.php";
