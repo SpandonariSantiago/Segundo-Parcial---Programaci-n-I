@@ -4,7 +4,7 @@ require "../utils/autoload.php";
 
     class UsuarioModelo extends Modelo{
         public $Id;
-        public $username;
+        public $Username;
         public $CompleteName;
         public $Password;
         
@@ -24,7 +24,7 @@ require "../utils/autoload.php";
 
         private function insertar(){
             $sql = "INSERT INTO usuario (username, complete_name, password) VALUES (
-            '" . $this -> username . "',
+            '" . $this -> Username . "',
             '" . $this -> CompleteName . "',
             '" . $this -> hashearPassword($this -> Password) . "')";
 
@@ -37,7 +37,7 @@ require "../utils/autoload.php";
 
         private function actualizar(){
             $sql = "UPDATE usuario SET
-            username = '" . $this -> username . "',
+            username = '" . $this -> Username . "',
             complete_name = '" . $this -> CompleteName . "',
             password = '" . $this -> Password . "'
             WHERE id = " . $this -> id;
@@ -49,7 +49,7 @@ require "../utils/autoload.php";
             $fila = $this -> conexionBaseDeDatos -> query($sql) -> fetch_all(MYSQLI_ASSOC)[0];
 
             $this -> Id = $fila['id'];
-            $this -> username = $fila['username'];
+            $this -> Username = $fila['username'];
             $this -> CompleteName = $fila['complete_name'];
         }
 
@@ -66,7 +66,7 @@ require "../utils/autoload.php";
             foreach($filas as $fila){
                 $p = new UsuarioModelo();
                 $p -> Id = $fila['id'];
-                $p -> username = $fila['username'];
+                $p -> Username = $fila['username'];
                 $p -> CompleteName = $fila['complete_name'];
                 array_push($resultado,$p);
             }

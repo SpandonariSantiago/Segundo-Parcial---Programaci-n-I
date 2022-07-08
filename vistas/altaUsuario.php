@@ -8,21 +8,23 @@
 </head>
 <body>
     <h1>Registro de usuario</h1> 
-    <h2>Ingrese los datos del usuario</h2>
+    <hr><h2>Ingrese los datos del usuario</h2><hr>
     
-     <form action="/" method="post">
-        <label for="NombreUsuario">Nombre de Usuario: </label>
-        <input type="text" name="NombreUsuario" id="NombreUsuario"> 
+    <br /> 
+    <form action="/altaUsuario" method="post">
+        <label for="username">Nombre de Usuario: </label>
+        <input type="text" name="username" id="username"> 
         <label>(Tenga en cuenta que con este nombre lo veran los demas usuarios)</label><br /><br /> 
 
-        <label for="NombreCompleto">Nombre completo: </label>
-        <input type="text" name="NombreCompleto" id="NombreCompleto"><br /><br />
+        <label for="complete_name">Nombre completo: </label>
+        <input type="text" name="complete_name" id="complete_name"><br /><br />
 
-        <label for="Password">Contraseña: </label>
-        <input type="password" name="Password" id="Password"><br /><br />
+        <label for="password">Contraseña: </label>
+        <input type="password" name="password" id="password"><br /><br />
 
         <input type="submit" value="Crear Usuario">
     </form>
+    <br /><hr>
     
     <br /><a href='/login'>Volver</a>
     

@@ -3,28 +3,28 @@
 require "../utils/autoload.php";
 
     class PublicacionModelo extends Modelo{
-        public $username;
-        public $fechaYHora;
-        public $publicacion;
+        public $Username;
+        public $FechaYHora;
+        public $Publicacion;
         
 
-        public function __construct($username="", $fechaYHora=""){
+        public function __construct($Username="", $FechaYHora=""){
             parent::__construct();
-            if($username != "" && $fechaYHora=""){
-                $this -> username = $username;
-                $this -> fechaYHora = $fechaYHora;
+            if($Username != "" && $FechaYHora=""){
+                $this -> Username = $Username;
+                $this -> FechaYHora = $FechaYHora;
                 $this -> Obtener();
             }
         }
 
         public function Guardar(){
-            if($this -> username == NULL AND $this -> fechaYHora == NULL) $this -> insertar();
+            if($this -> Username == NULL AND $this -> FechaYHora == NULL) $this -> insertar();
             else $this -> actualizar();
         }
 
         private function insertar(){
-            $sql = "INSERT INTO publicacion (username, fechaYhora, publicacion) VALUES (
-            '" . $this -> username . "',
+            $sql = "INSERT INTO publicacion (Username, FechaYHora, publicacion) VALUES (
+            '" . $this -> Username . "',
             'CURRENT_DATETIME',
             '" . $this -> publicacion . "')";
 
@@ -34,21 +34,21 @@ require "../utils/autoload.php";
         private function actualizar(){
             $sql = "UPDATE publicacion SET
             publicacion = '" . $this -> publicacion . "'
-            WHERE username = '" . $this -> username . "' AND fechaYHora = '" . $this -> fechaYHora . "'";
+            WHERE Username = '" . $this -> Username . "' AND FechaYHora = '" . $this -> FechaYHora . "'";
             $this -> conexionBaseDeDatos -> query($sql);
         }
 
         public function Obtener(){
-            $sql = "SELECT * FROM publicacion WHERE username = '" . $this -> username . "' AND fechaYHora = '" . $this -> fechaYHora . "'";
+            $sql = "SELECT * FROM publicacion WHERE Username = '" . $this -> Username . "' AND FechaYHora = '" . $this -> FechaYHora . "'";
             $fila = $this -> conexionBaseDeDatos -> query($sql) -> fetch_all(MYSQLI_ASSOC)[0];
 
-            $this -> username = $fila['username'];
-            $this -> fechaYHora = $fila['fechaYHora'];
+            $this -> Username = $fila['Username'];
+            $this -> FechaYHora = $fila['FechaYHora'];
             $this -> publicacion = $fila['publicacion'];
         }
 
         public function Eliminar(){
-            $sql = "DELETE FROM publicacion WHERE username = '" . $this -> username . "' AND fechaYHora = '" . $this -> fechaYHora . "'";
+            $sql = "DELETE FROM publicacion WHERE Username = '" . $this -> Username . "' AND FechaYHora = '" . $this -> FechaYHora . "'";
             $this -> conexionBaseDeDatos -> query($sql);
         }
 
@@ -59,8 +59,8 @@ require "../utils/autoload.php";
             $resultado = array();
             foreach($filas as $fila){
                 $p = new PublicacionModelo();
-                $p -> username = $fila['username'];
-                $p -> fechaYHora = $fila['fechaYHora'];
+                $p -> Username = $fila['Username'];
+                $p -> FechaYHora = $fila['FechaYHora'];
                 $p -> publicacion = $fila['publicacion'];
                 array_push($resultado,$p);
             }
