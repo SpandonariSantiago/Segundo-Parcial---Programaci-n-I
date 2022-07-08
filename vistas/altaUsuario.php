@@ -7,7 +7,7 @@
     <title>Registro</title>
 </head>
 <body>
-    <h1>Registro de usuario</h1> 
+    <h1>REGISTRO DE USUARIO</h1> 
     <hr><h2>Ingrese los datos del usuario</h2><hr>
     
     <br /> 
@@ -23,10 +23,16 @@
         <input type="password" name="password" id="password"><br /><br />
 
         <input type="submit" value="Crear Usuario">
+        <input type="reset" value="Vaciar">
     </form>
     <br /><hr>
     
-    <br /><a href='/login'>Volver</a>
+    <br /><a href='/login'>Volver</a><br />
+
+    <?php if(isset($parametros['error']) && $parametros['error'] === false ) :?>
+        <br /><hr>
+        <div style="color: green;">Usuario creado correctamente</div>
+    <?php endif;?>
     
 </body>
 </html>

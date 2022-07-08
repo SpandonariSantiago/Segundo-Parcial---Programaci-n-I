@@ -4,6 +4,7 @@
      if(isset($_SESSION['autenticado']))
         header("Location: /");
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,7 +14,7 @@
     <title>Login</title>
 </head>
 <body>
-    <h1>Inicio de sesion</h1><hr>
+    <h1>INICIO DE SESION</h1><hr>
     
     <br />
     <form action="/login" method="post">

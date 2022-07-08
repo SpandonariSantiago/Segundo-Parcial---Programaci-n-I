@@ -4,11 +4,11 @@
     class SesionControlador {
         public static function IniciarSesion($context){
             $u = new UsuarioModelo();
-            $u -> Nombre = $context['post']['usuario'];
+            $u -> Username = $context['post']['username'];
             $u -> Password = $context['post']['password'];
-            if($u -> Autenticar($u -> Nombre, $u -> Password)){
+            if($u -> Autenticar($u -> Username, $u -> Password)){
                 SessionCreate("autenticado",true);
-                SessionCreate("nombreUsuario", $u -> Nombre);
+                SessionCreate("username", $u -> Username);
                 header("Location: /");
 
             }
@@ -17,7 +17,7 @@
 
         public static function CerrarSesion($context){
             session_destroy();
-            header("Location:/login");
+            header("Location:/paginaPrincipal");
         }
 
        

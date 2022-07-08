@@ -25,16 +25,16 @@ require "../utils/autoload.php";
         private function insertar(){
             $sql = "INSERT INTO publicacion (Username, FechaYHora, publicacion) VALUES (
             '" . $this -> Username . "',
-            'CURRENT_DATETIME',
-            '" . $this -> publicacion . "')";
+            CURRENT_TIME,
+            '" . $this -> Publicacion . "')";
 
             $this -> conexionBaseDeDatos -> query($sql);
         }
 
         private function actualizar(){
             $sql = "UPDATE publicacion SET
-            publicacion = '" . $this -> publicacion . "'
-            WHERE Username = '" . $this -> Username . "' AND FechaYHora = '" . $this -> FechaYHora . "'";
+            publicacion = '" . $this -> Publicacion . "'
+            WHERE Username = '" . $this -> Username . "' AND FechaYHora = CURRENT_TIME";
             $this -> conexionBaseDeDatos -> query($sql);
         }
 
@@ -59,9 +59,9 @@ require "../utils/autoload.php";
             $resultado = array();
             foreach($filas as $fila){
                 $p = new PublicacionModelo();
-                $p -> Username = $fila['Username'];
-                $p -> FechaYHora = $fila['FechaYHora'];
-                $p -> publicacion = $fila['publicacion'];
+                $p -> Username = $fila['username'];
+                $p -> FechaYHora = $fila['fechaYHora'];
+                $p -> Publicacion = $fila['publicacion'];
                 array_push($resultado,$p);
             }
             return $resultado;

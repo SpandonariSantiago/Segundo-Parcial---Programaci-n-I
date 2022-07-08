@@ -8,6 +8,7 @@
             $u -> CompleteName = $context['post']['complete_name'];
             $u -> Password = $context['post']['password'];
             $u -> Guardar();
+            render("altaUsuario",["error" => false]);
         }
     }
 
