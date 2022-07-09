@@ -1,3 +1,7 @@
+<?php 
+    require "../utils/autoload.php";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,8 +19,11 @@
     <br /> 
     <form action="/altaPublicacion" method="post">
 
+        <label for="username">Autor:</label><br />
+        <input type="text" name="username" id="username" value="<?= $_SESSION['username']; ?>" readonly><br /><br />
+
         <label for="publicacion">Aqui escriba lo que quiera publicar: </label><br />
-        <textarea name="publicacion" id="publicacion"placeholder="Escribe en tu post"></textarea><br /><br />
+        <textarea name="publicacion" id="publicacion" placeholder="Escribe en tu post"></textarea><br /><br />
 
         <input type="submit" value="Publicar">
         <input type="reset" value="Vaciar">

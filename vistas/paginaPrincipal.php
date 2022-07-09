@@ -1,7 +1,3 @@
-<?php 
-    require "../utils/autoload.php";
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,15 +10,17 @@
     <h1>BLOG</h1><hr>
     <h2>Bienvenido a nuestro blog, donde podra publicar lo que usted quiera ☺</h2>
 
-    <?php if(isset($_SESSION['autenticado'])) :?>
-        <hr><h3>Si desea hacer una publicacion presione aqui:</h3>
-        <a href='/altaPublicacion'>Hacer publicacion</a><hr>
+    <?php 
+        require "../utils/autoload.php";
+        if(isset($_SESSION['autenticado'])) :?>
+            <hr><h3>Bienvenido <?php echo $_SESSION['username']; ?>. Si desea hacer una publicacion presione aqui:</h3>
+            <a href='/altaPublicacion'>Hacer publicacion</a>
 
-        <hr><h3>Si desea cerrar sesion presione aqui:</h3>
-        <a href='/cerrarsesion'>Cerrar sesion</a><hr>
-    <?php else:?>
-        <hr><h3>Si desea iniciar sesion presione aqui:</h3><a href='/login'>Iniciar sesion</a><hr>
-    <?php endif?>
+            <hr><h3>Si desea cerrar sesion presione aqui:</h3>
+            <a href='/paginaPrincipal?cierre=0'>Cerrar sesion</a><hr>
+        <?php else:?>
+            <hr><h3>Si desea iniciar sesion presione aqui:</h3><a href='/login'>Iniciar sesion</a><hr>
+        <?php endif?>
 
     <h3>Publicaciones</h3><hr>
 

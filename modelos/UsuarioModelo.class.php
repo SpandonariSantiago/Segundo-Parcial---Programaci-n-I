@@ -76,6 +76,7 @@ require "../utils/autoload.php";
         public function Autenticar(){
             $sql = "SELECT * FROM usuario WHERE username = '" . $this -> Username . "'";
             $resultado = $this -> conexionBaseDeDatos -> query($sql);
+            echo $sql;
             if($resultado -> num_rows == 0) {
                 return false;
             }

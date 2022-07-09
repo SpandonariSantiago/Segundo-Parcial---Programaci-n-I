@@ -6,7 +6,8 @@
             $p = new PublicacionModelo();
             $p -> Username = $context['post']['username'];
             $p -> Publicacion = $context['post']['publicacion'];
-            $p -> Guardar();
+            $p -> Insertar();
+            render("altaPublicacion",["error" => false]);
         }
 
         public static function Listar(){

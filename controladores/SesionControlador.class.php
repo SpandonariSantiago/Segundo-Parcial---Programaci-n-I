@@ -17,9 +17,8 @@
 
         public static function CerrarSesion($context){
             session_destroy();
-            header("Location:/paginaPrincipal");
+            header("Location:/");
         }
 
-       
     }
 
