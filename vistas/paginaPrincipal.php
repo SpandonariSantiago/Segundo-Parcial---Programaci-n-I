@@ -16,8 +16,16 @@
             <hr><h3>Bienvenido <?php echo $_SESSION['username']; ?>. Si desea hacer una publicacion presione aqui:</h3>
             <a href='/altaPublicacion'>Hacer publicacion</a>
 
-            <hr><h3>Si desea cerrar sesion presione aqui:</h3>
-            <a href='/paginaPrincipal?cierre=0'>Cerrar sesion</a><hr>
+            <hr>
+            <form action="/" method="post">
+
+                <label for="username">¿Desea cerrar sesion?</label><br />
+                <input type="text" name="username" id="username" value="<?= $_SESSION['username']; ?>" readonly><br /><br />
+
+                <input type="submit" value="Cerrar sesion">
+            </form>
+            <hr>
+            
         <?php else:?>
             <hr><h3>Si desea iniciar sesion presione aqui:</h3><a href='/login'>Iniciar sesion</a><hr>
         <?php endif?>

@@ -16,8 +16,9 @@
         }
 
         public static function CerrarSesion($context){
-            session_destroy();
-            header("Location:/");
+            if ($context['post']['username'])
+                session_destroy();
+                header("Location:/");
         }
 
     }

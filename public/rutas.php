@@ -1,7 +1,8 @@
 <?php 
     require "../utils/autoload.php";
 
-    Routes::AddView("/","paginaPrincipal"); 
+    Routes::AddView("/","paginaPrincipal");
+    Routes::Add("/","post","SesionControlador::CerrarSesion");  
     Routes::AddView("/login","login");
     Routes::Add("/login","post","SesionControlador::IniciarSesion");
     Routes::AddView("/altaUsuario","altaUsuario");
